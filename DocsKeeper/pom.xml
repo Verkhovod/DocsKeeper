@@ -3,19 +3,19 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>DocsKeeper</groupId>
 	<artifactId>DocsKeeper</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<packaging>ear</packaging>
 	<dependencies>
 		<dependency>
 			<groupId>DocsKeeperEJB</groupId>
 			<artifactId>DocsKeeperEJB</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>0.0.2-SNAPSHOT</version>
 			<type>ejb</type>
 		</dependency>
 		<dependency>
 			<groupId>DocsKeeperWeb</groupId>
 			<artifactId>DocsKeeperWeb</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>0.0.2-SNAPSHOT</version>
 			<type>war</type>
 		</dependency>
 	</dependencies>
@@ -33,12 +33,12 @@
 						<webModule>
 							<groupId>DocsKeeperWeb</groupId>
 							<artifactId>DocsKeeperWeb</artifactId>
-							<bundleFileName>DocsKeeperWeb-0.0.1-SNAPSHOT.war</bundleFileName>
+							<bundleFileName>DocsKeeperWeb-0.0.2-SNAPSHOT.war</bundleFileName>
 						</webModule>
 						<ejbModule>
 							<groupId>DocsKeeperEJB</groupId>
 							<artifactId>DocsKeeperEJB</artifactId>
-							<bundleFileName>DocsKeeperEJB-0.0.1-SNAPSHOT.jar</bundleFileName>
+							<bundleFileName>DocsKeeperEJB-0.0.2-SNAPSHOT.jar</bundleFileName>
 						</ejbModule>
 					</modules>
 				</configuration>

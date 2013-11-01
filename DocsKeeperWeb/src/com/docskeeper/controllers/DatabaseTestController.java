@@ -41,7 +41,7 @@ public class DatabaseTestController extends HttpServlet {
 
 	private void handleRequest(HttpServletRequest req, HttpServletResponse resp) {
 		EntityManagerFactory emf = Persistence
-				.createEntityManagerFactory("CloudCalculationEJB");
+				.createEntityManagerFactory("DocsKeeperEJB");
 		EntityManager em = emf.createEntityManager();
 		
 		try {
