@@ -13,3 +13,16 @@ jboss/server/minimal/log/*.log
 jboss/server/minimal/tmp/**/*
 jboss/server/minimal/data/**/*
 jboss/server/minimal/work/**/*
+./metadata/
+DocsKeeper/.project
+DocsKeeper/.settings/
+DocsKeeperEJB/.classpath
+DocsKeeperEJB/.project
+DocsKeeperEJB/.settings/
+DocsKeeperWeb/.classpath
+DocsKeeperWeb/.settings/
+DocsKeeperWeb/.project
+DocsKeeperEJB/.gitignore
+DocsKeeperWeb/.gitignore
+DocsKeeper/.gitignore
+.metadata/

@@ -1,0 +1,35 @@
+For Jboss:
+1) Create folder in {jboss_folder}\modules\com\mysql\main\
+2) Save  mysql-connector-java-{version}.jar here;
+3) Save module.xml in this folder 
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="urn:jboss:module:1.0" name="com.mysql">
+    <resources>
+        <resource-root path="mysql-connector-java-{version}.jar"/>
+    </resources>
+    <dependencies>
+        <module name="javax.api"/>
+        <module name="javax.transaction.api"/>
+    </dependencies>
+</module>
+4) In {jboss_folder}\standalone\configuration\ update standalone.xml,
+find datasources tag and add following:
+<datasource jta="true" jndi-name="java:jboss/datasources/mySql" pool-name="mySqlPool" enabled="true" use-java-context="true" use-ccm="true">
+    <connection-url>jdbc:mysql://localhost:3306/{db_name}</connection-url>
+    <driver>mysql</driver>
+    <security>
+        <user-name>{yourusername}</user-name>
+        <password>{yourpassowrd}</password>
+    </security>
+    <statement>
+        <prepared-statement-cache-size>100</prepared-statement-cache-size>
+        <share-prepared-statements>true</share-prepared-statements>
+    </statement>
+</datasource>          
+also under drivers add:                             
+<drivers>
+    <driver name="mysql" module="com.mysql"/>
+    <!-- rest of the drivers definition -->					
+</drivers>
+5) Add JPA 2.0 support to EJB project through Properties -> Project Facets -> check JPA;
+Dont forget to specify JPA implementation -> for example Hibernate 4.1.1

@@ -1,0 +1,13 @@
+In order to correctly get data from table that is responsible for security should be done next:
+For Jboss:
+1) Update standalone.xml adding next tags to <security-domains>: 
+<security-domain name="DocsKeeper">
+                    <authentication>
+                        <login-module code="org.jboss.security.auth.spi.DatabaseServerLoginModule" flag="required">
+                            <module-option name="dsJndiName" value="java:jboss/datasources/mySql"/>
+                            <module-option name="principalsQuery" value="select password from LoginInfo where login=?"/>
+                            <module-option name="rolesQuery" value="select rights from  LoginInfo where login=?"/>
+                        </login-module>
+                    </authentication>
+                </security-domain>
+                
