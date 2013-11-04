@@ -8,9 +8,14 @@
 <h:head></h:head>
 <body>
 	<h:form>
-		<h:outputText value="User:" />
-		<p:inputText />
-		<h:button action="#{registrationController.login}"/>
+		<h:outputText value="Username*:" />
+		<p:inputText id="login" name="j_username"
+			value="#{registrationController.userName}" required="true" />
+		<h:outputText value="Password*:" />
+		<p:password id="password" name="j_password"
+			value="#{registrationController.password}" required="true" />
+		<p:commandButton value="Submit"
+			action="#{registrationController.login()}" />
 	</h:form>
 </body>
 </html>

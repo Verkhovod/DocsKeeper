@@ -7,7 +7,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
 import com.docskeeper.model.dao.LoginInfoDao;
+import com.docskeeper.model.entries.LoginInfo;
 
+/**
+ * Controller for registration, login, logout actions
+ * 
+ * @author a.pryshchepa
+ * @email vinglfm@gmail.com
+ */
 @ManagedBean
 public class RegistrationController {
 
@@ -20,8 +27,10 @@ public class RegistrationController {
 	public String login() {
 		try {
 			getRequest().login(userName, password);
-//			LoginInfo loginInfo = loginDao.getUserDataByLogin(userName);
-			//TODO: try to check if it is possible to identify user here using getUserInfo()... 
+			LoginInfo loginInfo = loginDao.getUserDataByLogin(userName);
+
+			// TODO: try to check if it is possible to identify user here using
+			// getUserInfo()...
 		} catch (ServletException exp) {
 			return null;
 		}
