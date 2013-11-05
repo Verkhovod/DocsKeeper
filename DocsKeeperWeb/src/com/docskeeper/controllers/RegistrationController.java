@@ -27,15 +27,16 @@ public class RegistrationController {
 
 	public String login() {
 		try {
-			getRequest().login(userName,
-					SecurityHelper.createHashPassword(password));
+			getRequest().login(userName, password);
 			LoginInfo loginInfo = loginDao.getUserDataByLogin(userName);
 			// TODO: Remove call to logout from here. Added just for test
 			// purposes
+			System.out.println("1");
 			logout();
 			// TODO: try to check if it is possible to identify user here using
 			// getUserInfo()...
 		} catch (ServletException exp) {
+			System.out.println("2");
 			return null;
 		}
 		return "";

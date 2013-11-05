@@ -1,4 +1,5 @@
 In order to correctly get data from table that is responsible for security should be done next:
+All password should be in MD5 format.
 For Jboss:
 1) Update standalone.xml adding next tags to <security-domains>: 
 <security-domain name="DocsKeeper">
@@ -7,6 +8,7 @@ For Jboss:
                             <module-option name="dsJndiName" value="java:jboss/datasources/mySql"/>
                             <module-option name="principalsQuery" value="select password from LoginInfo where login=?"/>
                             <module-option name="rolesQuery" value="select rights from  LoginInfo where login=?"/>
+                            <module-option name="hashAlgorithm" value="MD5"/>
                         </login-module>
                     </authentication>
                 </security-domain>
