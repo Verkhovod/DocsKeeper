@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.docskeeper.model.dao.LoginInfoDao;
 import com.docskeeper.model.entries.LoginInfo;
+import com.docskeeper.utils.SecurityHelper;
 
 /**
  * Controller for registration, login, logout actions
@@ -26,15 +27,29 @@ public class RegistrationController {
 
 	public String login() {
 		try {
-			getRequest().login(userName, password);
+			getRequest().login(userName,
+					SecurityHelper.createHashPassword(password));
 			LoginInfo loginInfo = loginDao.getUserDataByLogin(userName);
-
+			// TODO: Remove call to logout from here. Added just for test
+			// purposes
+			logout();
 			// TODO: try to check if it is possible to identify user here using
 			// getUserInfo()...
 		} catch (ServletException exp) {
 			return null;
 		}
 		return "";
+	}
+
+	public void logout() throws ServletException {
+		FacesContext.getCurrentInstance().getExternalContext()
+				.invalidateSession();
+		if (isAuthenticated())
+			getRequest().logout();
+	}
+
+	private boolean isAuthenticated() {
+		return getRequest().getUserPrincipal() != null;
 	}
 
 	public static HttpServletRequest getRequest() {
